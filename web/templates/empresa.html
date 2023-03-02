@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<div class="container">
+  {% include 'partials/_logo-menu.html' %}
+  <section id="newsSection">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="single_page">
+          <ol class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="active">A Empresa</li>
+          </ol>
+
+          <h1>Grupo Simec - Nossa história</h1>
+          <div class="single_page_content"> <img class="img-center" src="{% static 'images\grupo_simec.jpg' %}" alt="">
+            
+            <blockquote>O Grupo Simec iniciou suas operações no setor siderúrgico em 1969, quando um grupo de famílias da cidade de Guadalajara (México) fundou a Companhia Siderúrgica de Guadalajara S.A.<br>
+              Em continuidade com seu plano de expansão a novos mercados, o Grupo Simec no Brasil tem usinas siderúrgicas localizadas nos estados de São Paulo, Espírito Santo e Minas Gerais.<br>
+              Acreditando que o aço colabora de forma efetiva no desenvolvimento de todos os países, expandiu suas operações para os Estados Unidos, solidificando sua participação como importante competidor nesses mercados e atingindo a marca de mais de 7,5 milhões de toneladas por ano produzidas, sendo considerada uma das mais importantes siderúrgicas de aços especiais da América do Norte.
+            </blockquote>
+            <blockquote>
+              <b>Missão</b><br>
+              Satisfazer as necessidades do cliente, superando suas expectativas de qualidade em produto e serviço de forma competitiva, com efetivo respeito as pessoas, aos nossos valores, as Leis e ao meio ambiente.
+            </blockquote>
+            <blockquote>
+              <b>Visão</b><br>
+              Conquistar credibilidade junto ao cliente através da qualidade de nossos produtos e serviços, desenvolvendo um crescimento sólido e contínuo, com respeito aos nossos valores, em um ambiente de confiança, trabalho e ordem.
+            </blockquote>
+            <blockquote>
+              <b>Filosofia Empresarial</b><br>
+              Forte orientação para redução de custos e despesas através da melhoria operacional contínua, pessoas como base de crescimento, cumprimento às Leis e regulamentos ambientais e desenvolvimento de novos negócios.
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include 'partials/_footer.html' %}
+</div>
+
+
+{% endblock %}

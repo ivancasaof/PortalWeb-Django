@@ -1,0 +1,32 @@
+{% load static %}
+<header id="header">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="header_bottom">
+          <div class="logo_area"><a href="{% url 'index' %}" class="logo"><img src="{% static 'images/logo.jpg' %}" alt=""></a></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="navArea">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav main_nav">
+          <li class="active"><a href="{% url 'index' %}"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
+          <li><a href="{% url 'empresa' %}">A Empresa</a></li>
+          <li><a href="{% url 'comunicados' %}">Comunicados</a></li>
+          <li><a href="{% url 'eventos' %}">Eventos</a></li>
+          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Recursos Humanos</a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="{% url 'rh_comunicados' %}">Comunicados RH</a></li>
+              <li><a href="http://192.168.10.14:8685/pp/w_pwsx010.apw" target='_blank'>Portal RH</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Manual do Colaborador</a></li>
+        </ul>
+      </div>
+    </nav>
+  </section>

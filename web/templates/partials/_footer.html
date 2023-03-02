@@ -1,0 +1,33 @@
+{% load static %}
+<footer id="footer">
+    <div class="footer_top">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="footer_widget wow fadeInLeftBig">
+            <h2>Portal Grupo Simec</h2>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="footer_widget wow fadeInDown">
+            <h2>Links</h2>
+            <ul class="tag_nav">
+              <li><a href="{% url 'comunicados' %}">Comunicados</a></li>
+              <li><a href="{% url 'eventos' %}">Eventos</a></li>
+              <li><a href="{% url 'rh_comunicados' %}">Recursos Humanos</a></li>
+              <li><a href="#">Manual do Colaborador</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="footer_widget wow fadeInRightBig">
+            <h2>Contato</h2>
+            <p>E-mail: helpdesk@gruposimec.com.br<br>Ramais: 7027, 7028, 7029 e 7030</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_bottom">
+      <p class="copyright">Copyright &copy; 2022</p>
+      <p class="developer">Desenvolvido pela Equipe de TI (Pindamonhangaba)</p>
+    </div>
+  </footer>

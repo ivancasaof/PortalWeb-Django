@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<div class="container">
+  {% include 'partials/_logo-menu.html' %}
+  <section id="newsSection">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="single_page">
+          <ol class="breadcrumb">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="active">Comunicados</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="catalog">
+    <div class="content">
+      <div class="card-wrapper">
+        {% if noticia%}
+        {% for noticia in noticia %}
+        <div class="card-item">
+          {% if noticia.foto %}
+          <img src="{{ noticia.foto.url }}" alt="">
+          {% else %}
+          <p></p>
+          {% endif %}
+          <div class="card-content">
+            <a href="{% url 'comunicados_ativo' noticia.id %}"><h4>{{ noticia.titulo }}</h4></a><br>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  {% include 'partials/_footer.html' %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<div class="container">
+  {% include 'partials/_logo-menu.html' %}
+  <section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+          {% for noticias in noticias_geral %}
+          {% if forloop.counter >= 1 and forloop.counter <= 3 %}
+          {% if noticias.foto %}
+          <div class="single_iteam"> <a href="{% url 'noticias_geral' noticias.id %}"> <img src="{{ noticias.foto.url }}" alt=""></a>
+          {% else %}
+            <p></p>
+          {% endif %}
+            <div class="slider_article">
+              <h2><a class="slider_tittle" href="{% url 'noticias_geral' noticias.id %}">{{ noticias.titulo }}</a></h2>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="latest_post">
+          <h2><span>últimos posts</span></h2>
+          <div class="latest_post_container">
+            <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
+            <ul class="latest_postnav">
+              {% for noticias in noticias_geral %}
+              {% if forloop.counter >= 1 and forloop.counter <= 5 %}
+              <li>
+                {% if noticias.foto %}
+                <div class="media"> <a href="{% url 'noticias_geral' noticias.id %}" class="media-left"> <img alt="" src="{{ noticias.foto.url }}"> </a>
+                {% else %}
+                <p></p>
+                {% endif %}
+                  <div class="media-body"> <a href="{% url 'noticias_geral' noticias.id %}" class="catg_title"> {{ noticias.titulo }}</a> </div>
+                </div>
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+            <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+          <div class="single_post_content">
+            <h2><span>Comunicados</span></h2>
+            <div class="single_post_content_left">
+              <ul class="business_catgnav  wow fadeInDown">
+                <li>
+                  <figure class="bsbig_fig">
+                    {% for comunicado in noticias_comunicado %}
+                    {% if forloop.first %}
+                    <a href="{% url 'comunicados_ativo' comunicado.id %}" class="featured_img"> <img alt="" src="{{ comunicado.foto.url }}"> <span class="overlay"></span> </a>
+                    <figcaption> <a href="{% url 'comunicados_ativo' comunicado.id %}">{{ comunicado.titulo }}</a> </figcaption>
+                  </figure>
+                  {% endif %}
+                  {% endfor %}
+                </li>
+              </ul>
+            </div>
+            <div class="single_post_content_right">
+              <ul class="spost_nav">
+                {% for comunicado in noticias_comunicado %}
+                {% if forloop.counter >= 2 and forloop.counter <= 5 %}
+                <li>
+                  <div class="media wow fadeInDown">
+                    {% if comunicado.foto %}
+                    <a href="{% url 'comunicados_ativo' comunicado.id %}" class="media-left"> <img alt="" src="{{ comunicado.foto.url }}"> </a>
+                    {% else %}
+                    <p></p>
+                    {% endif %}
+                    <div class="media-body"> <a href="{% url 'comunicados_ativo' comunicado.id %}" class="catg_title"> {{ comunicado.titulo }}</a> </div>
+                  </div>
+                </li>
+                {% endif%}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="fashion_technology_area">
+            <div class="fashion">
+              <div class="single_post_content">
+                <h2><span>Eventos</span></h2>
+                <ul class="business_catgnav wow fadeInDown">
+                  {% for evento in noticias_evento %}
+                  {% if forloop.first %}
+                  <li>
+                    <figure class="bsbig_fig"> <a href="{% url 'eventos_ativo' evento.id %}" class="featured_img"> <img alt="" src="{{ evento.foto.url }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="{% url 'eventos_ativo' evento.id %}">{{ evento.titulo }}</a> </figcaption>
+                    </figure>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+                <ul class="spost_nav">
+                  {% for evento in noticias_evento %}
+                  {% if forloop.counter >= 2 and forloop.counter <= 5 %}
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="{% url 'eventos_ativo' evento.id %}" class="media-left">
+                      {% if evento.foto %}
+                        <img alt="" src="{{ evento.foto.url }}"> </a>
+                      {% else %}
+                        <p></p>
+                      {% endif %}
+                      <div class="media-body"> <a href="{% url 'eventos_ativo' evento.id %}" class="catg_title">{{ evento.titulo }}</a> </div>
+                    </div>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="technology">
+              <div class="single_post_content">
+                <h2><span>Recursos Humanos</span></h2>
+                <ul class="business_catgnav">
+                  {% for rhcomunicados in noticias_rh_comunicados %}
+                  {% if forloop.first %}
+                  <li>
+                    <figure class="bsbig_fig wow fadeInDown"> <a href="" class="featured_img"> <img alt="" src="{{ rhcomunicados.foto.url }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="">{{ rhcomunicados.titulo }}</a> </figcaption>
+                    </figure>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+                <ul class="spost_nav">
+                  {% for rhcomunicados in noticias_rh_comunicados %}
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="{% url 'rh_comunicados_ativo' rhcomunicados.id %}" class="media-left"> <img alt="" src="{{ rhcomunicados.foto.url }}"> </a>
+                      <div class="media-body"> <a href="" class="catg_title">{{ rhcomunicados.titulo }}</a> </div>
+                    </div>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <aside class="right_content">
+          <div class="single_sidebar">
+            <h2><span>Mais acessados</span></h2>
+            <ul class="spost_nav">
+              {% for comunicado in noticias_evento %}
+              {% if forloop.counter >= 2 and forloop.counter <= 5 %}
+              <li>
+                <div class="media wow fadeInDown"> <a href="{% url 'comunicados_ativo' comunicado.id %}" class="media-left"> <img alt="" src="{{ comunicado.foto.url }}"> </a>
+                  <div class="media-body"> <a href="{% url 'comunicados_ativo' comunicado.id %}" class="catg_title"> {{ comunicado.titulo }}</a> </div>
+                </div>
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="single_sidebar wow fadeInDown">
+            <h2><span>Links</span></h2>
+            <ul>
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'empresa' %}">A Empresa</a></li>
+              <li><a href="{% url 'comunicados' %}">Comunicados</a></li>
+              <li><a href="{% url 'eventos' %}">Eventos</a></li>
+              <li><a href="{% url 'rh_comunicados' %}">Recursos Humanos</a></li>
+              <li><a href="#">Manual do Colaborador</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  {% include 'partials/_footer.html' %}
+</div>
+{% endblock %}
